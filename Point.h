@@ -6,11 +6,8 @@ private:
 	int x;
 	int y;
 public:
-	// default constructor
-	Point()
-	{
-
-	}
+	// default constructor - initialize point to (0,0)
+	Point();
 
 	// complex constructor
 	Point(int x, int y);
@@ -67,7 +64,7 @@ public:
 	/// Get string representation of point.
 	/// </summary>
 	/// <returns>Point in the string form of "[x,y]"</returns>
-	std::string& toString();
+	std::string toString();
 
 
 
