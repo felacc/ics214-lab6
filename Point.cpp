@@ -12,46 +12,50 @@ Point::Point(int x, int y)
 	// to be implmented... maybe
 }
 
-int Point::getX()
+int Point::getX() const 
 {
-	return Point::x;
+	return x;
 }
 
-int Point::getY()
+int Point::getY() const
 {
-	return Point::y;
+	return y;
 }
 
 void Point::setX(int x)
 {
-	Point::x = x;
+	this->x = x;
 }
 
 void Point::setY(int y)
 {
-	Point::y = y;
+	this->y = y;
+}
+
+void Point::setXY(int x, int y)
+{
+	setX(x);
+	setY(y);
 }
 
 void Point::swapXY()
 {
-	int temp{ Point::getX() };
-	Point::setX(Point::getY());
-	Point::setY(temp);
+	int temp{ getX() };
+	setX(getY());
+	setY(temp);
 }
 
 void Point::multiplyX(int factor)
 {
-	int product{ Point::getX() * factor };
-	Point::setX(product);
+	setX(getX() * factor);
 }
 
 void Point::multiplyY(int factor)
 {
-	int product{ Point::getY() * factor };
-	Point::setY(product);
+	setY(getY() * factor);
 }
 
-std::string Point::toString()
+std::string Point::toString() const
 {
-	return "[" + std::to_string(Point::getX()) + "," + std::to_string(Point::getY()) + "]";
+	return "[" + std::to_string(getX()) + "," + std::to_string(getY()) + "]";
 }

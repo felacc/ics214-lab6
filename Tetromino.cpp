@@ -3,17 +3,17 @@
 
 Tetromino::Tetromino()
 {
-
+	setShape(TetShape::S);
 }
 
-TetColor Tetromino::getColor() 
+TetColor Tetromino::getColor() const 
 {
-	return Tetromino::color;
+	return color;
 }
 
-TetShape Tetromino::getShape()
+TetShape Tetromino::getShape() const
 {
-	return Tetromino::shape;
+	return shape;
 }
 
 void Tetromino::setShape(TetShape shape)
@@ -26,32 +26,32 @@ void Tetromino::setShape(TetShape shape)
 	switch (shape)
 	{
 	case TetShape::O:
-		Tetromino::blockLocs = { Point(0,0), Point(0,1), Point(1,0), Point(1,1) };
-		Tetromino::color = TetColor::YELLOW;
+		blockLocs = { Point(0,0), Point(0,1), Point(1,0), Point(1,1) };
+		color = TetColor::YELLOW;
 		break;
 	case TetShape::I:
-		Tetromino::blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(0,2) };
-		Tetromino::color = TetColor::BLUE_LIGHT;
+		blockLocs = { Point(0,0), Point(0,-1), Point(0,1), Point(0,2) };
+		color = TetColor::BLUE_LIGHT;
 		break;
 	case TetShape::S:
-		Tetromino::blockLocs = { Point(0,0), Point(-1,0), Point(0,1), Point(1,1) };
-		Tetromino::color = TetColor::RED;
+		blockLocs = { Point(0,0), Point(-1,0), Point(0,1), Point(1,1) };
+		color = TetColor::RED;
 		break;
 	case TetShape::Z:
-		Tetromino::blockLocs = { Point(0,0), Point(0,1), Point(1,0), Point(-1,1) };
-		Tetromino::color = TetColor::GREEN;
+		blockLocs = { Point(0,0), Point(0,1), Point(1,0), Point(-1,1) };
+		color = TetColor::GREEN;
 		break;
 	case TetShape::L:
-		Tetromino::blockLocs = { Point(0,0), Point(0,-1), Point(1,-1), Point(0,1) };
-		Tetromino::color = TetColor::ORANGE;
+		blockLocs = { Point(0,0), Point(0,-1), Point(1,-1), Point(0,1) };
+		color = TetColor::ORANGE;
 		break;
 	case TetShape::J:
-		Tetromino::blockLocs = { Point(0,0), Point(0,-1), Point(-1,-1), Point(0,1) };
-		Tetromino::color = TetColor::BLUE_DARK;
+		blockLocs = { Point(0,0), Point(0,-1), Point(-1,-1), Point(0,1) };
+		color = TetColor::BLUE_DARK;
 		break;
 	case TetShape::T:
-		Tetromino::blockLocs = { Point(0,0), Point(-1,0), Point(1,0), Point(0,-1) };
-		Tetromino::color = TetColor::PURPLE;
+		blockLocs = { Point(0,0), Point(-1,0), Point(1,0), Point(0,-1) };
+		color = TetColor::PURPLE;
 		break;
 	default:
 		std::cout << "Invalid Shape Entered\n";
@@ -62,11 +62,26 @@ void Tetromino::setShape(TetShape shape)
 
 void Tetromino::rotateClockwise()
 {
-	// TODO
-	return;
+	if (getShape() == TetShape::O)
+	{
+		return;
+	}
+
+	for (int i = 0; i < blockLocs.size(); i++)
+	{
+		// for quad 1 (x, y): x becomes y, and y becomes -x
+		// for quad 4 (x, -y): x becomes y, y becomes -x
+		// for quad 3 (-x, -y): x becomes y, y becomes -x
+		// for quad 2 (-x, y): x becomes y, y becomes -x
+
+		// set x to negative
+		blockLocs[i].multiplyX(-1);
+		// swap
+		blockLocs[i].swapXY();
+	}
 }
 
-void Tetromino::printToConsole()
+void Tetromino::printToConsole() const
 {
 	// TODO
 	for (int x = -3; x <= 3; x++)
@@ -74,9 +89,9 @@ void Tetromino::printToConsole()
 		for (int y = 3; y >= -3; y--)
 		{
 			bool isShape{};
-			for (int i = 0; i < Tetromino::blockLocs.size(); i++)
+			for (int i = 0; i < blockLocs.size(); i++)
 			{
-				if (x == Tetromino::blockLocs[i].getX() && y == Tetromino::blockLocs[i].getY())
+				if (x == blockLocs[i].getX() && y == blockLocs[i].getY())
 				{
 					isShape = true;
 					break;

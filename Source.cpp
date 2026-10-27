@@ -1,6 +1,7 @@
 #include <iostream>
+#include "TestSuite.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	TestSuite::runTestSuite();
 }

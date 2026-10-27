@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
+
+
 class Point
 {
+	friend class TestSuite;
 private:
 	int x;
 	int y;
@@ -16,13 +19,13 @@ public:
 	/// Obtain x-coordinate of point.
 	/// </summary>
 	/// <returns>x-coordinate</returns>
-	int getX();
+	int getX() const;
 
 	/// <summary>
 	/// Obtain y-coordinate of point.
 	/// </summary>
 	/// <returns>y-coordinate</returns>
-	int getY();
+	int getY() const;
 	
 	/// <summary>
 	/// Sets x-coordinate of point.
@@ -64,7 +67,7 @@ public:
 	/// Get string representation of point.
 	/// </summary>
 	/// <returns>Point in the string form of "[x,y]"</returns>
-	std::string toString();
+	std::string toString() const;
 
 
 

@@ -26,6 +26,7 @@ enum class TetShape
 
 class Tetromino
 {
+	friend class TestSuite;
 private:
 	TetColor color;
 	TetShape shape;
@@ -33,14 +34,14 @@ private:
 public:
 	Tetromino();
 
-	TetColor getColor();
+	TetColor getColor() const;
 
-	TetShape getShape();
+	TetShape getShape() const;
 
 	void setShape(TetShape shape);
 
 	void rotateClockwise();
 
-	void printToConsole();
+	void printToConsole() const;
 };
 
