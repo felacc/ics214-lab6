@@ -84,9 +84,9 @@ void Tetromino::rotateClockwise()
 void Tetromino::printToConsole() const
 {
 	// TODO
-	for (int x = -3; x <= 3; x++)
+	for (int y = 3; y >= -3; y--)
 	{
-		for (int y = 3; y >= -3; y--)
+		for (int x = -3; x <= 3; x++)
 		{
 			bool isShape{};
 			for (int i = 0; i < blockLocs.size(); i++)
