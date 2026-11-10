@@ -83,7 +83,6 @@ void Tetromino::rotateClockwise()
 
 void Tetromino::printToConsole() const
 {
-	// TODO
 	for (int y = 3; y >= -3; y--)
 	{
 		for (int x = -3; x <= 3; x++)
