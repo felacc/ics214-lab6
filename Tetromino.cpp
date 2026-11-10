@@ -1,9 +1,15 @@
 #include "Tetromino.h"
 #include <iostream>
+#include <vector>
 
 Tetromino::Tetromino()
 {
 	setShape(TetShape::S);
+}
+
+const std::vector<Point>& Tetromino::getBlockLocs() const
+{
+	return blockLocs;
 }
 
 TetColor Tetromino::getColor() const 

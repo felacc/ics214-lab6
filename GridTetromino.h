@@ -58,7 +58,7 @@ public:
 	// and our gridLoc is [5,6] the mapped Point would be [5+x,6+y].
 	// params: none:
 	// return: a vector of Point objects.
-	std::vector<Point> getBlockLocsMappedToGrid();
+	std::vector<Point> getBlockLocsMappedToGrid() const;
 
 };
 

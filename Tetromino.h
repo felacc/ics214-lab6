@@ -31,6 +31,8 @@ private:
 	TetColor color;
 	TetShape shape;
 	std::vector<Point> blockLocs;
+protected:
+	const std::vector<Point>& getBlockLocs() const;
 public:
 	Tetromino();
 
