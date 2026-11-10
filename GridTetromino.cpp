@@ -20,3 +20,11 @@ void GridTetromino::setGridLoc(Point pt)
 {
 	gridLoc = pt;
 }
+
+
+void GridTetromino::move(int xOffset, int yOffset)
+{
+	int x = gridLoc.getX() + xOffset;
+	int y = gridLoc.getY() + yOffset;
+	gridLoc.setXY(x, y);
+}
