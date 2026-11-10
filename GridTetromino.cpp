@@ -6,3 +6,9 @@ GridTetromino::GridTetromino()
 
 }
 
+Point GridTetromino::getGridLoc() const
+{
+	return gridLoc;
+}
+
+
