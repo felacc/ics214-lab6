@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{CD19D3A8-02DA-08E6-6B62-CCD74FAE3D93}</ProjectGuid>
+    <ProjectGuid>{FC460917-FC50-4150-9EE3-AD79A23E5F93}</ProjectGuid>
     <RootNamespace>Lab6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,7 +139,17 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lab6.cpp" />
+    <ClCompile Include="GridTetromino.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TestSuite.cpp" />
+    <ClCompile Include="Tetromino.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GridTetromino.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="TestSuite.h" />
+    <ClInclude Include="Tetromino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
