@@ -11,4 +11,12 @@ Point GridTetromino::getGridLoc() const
 	return gridLoc;
 }
 
+void GridTetromino::setGridLoc(int x, int y)
+{
+	gridLoc.setXY(x, y);
+}
 
+void GridTetromino::setGridLoc(Point pt)
+{
+	gridLoc = pt;
+}
